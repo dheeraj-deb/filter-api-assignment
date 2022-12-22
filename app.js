@@ -1,7 +1,7 @@
 const express = require("express")
 require('dotenv').config()
 
-const {connect_db} = require('./config/database')
+const { connect_db } = require('./config/database')
 const errorHandler = require("./middleware/error")
 
 
@@ -9,8 +9,7 @@ const app = express()
 const PORT = process.env.PORT || 4000
 
 app.use(express.json())
-app.use(express
-    .urlencoded({extended:true}))
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST,PUT, DELETE')
