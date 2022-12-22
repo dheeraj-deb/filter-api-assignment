@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
 const obj = {}
 
-module.exports = connect_db = (callback) => {
+const connect_db = (callback) => {
     MongoClient.connect(process.env.MONGODB_URI, (err, client) => {
         if (err) callback(err)
         obj.db = client.db('assignment')
@@ -9,7 +9,11 @@ module.exports = connect_db = (callback) => {
     })
 }
 
-module.exports = db = () => {
+const db = () => {
     return obj.db
 }
 
+module.exports = {
+    connect_db,
+    db
+}
